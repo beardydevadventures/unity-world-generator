@@ -19,6 +19,11 @@ MonoBehaviour:
   - {fileID: 1644641572348816, guid: d6660cac033867643a649f4255fa8e4d, type: 3}
   - {fileID: 1532667504379520, guid: dbbffa6287a94b24c80e0839e6696216, type: 3}
   - {fileID: 1915442609382986, guid: e8efa5f3f39eede46b964d93acc7a7de, type: 3}
+  detailPrefabs:
+  - {fileID: 1250922595661228, guid: 04116d893f2546248ac274d84a40eae9, type: 3}
+  - {fileID: 1285638724306004, guid: e4e174b9656fc7e4282a2041b71ca5a3, type: 3}
+  - {fileID: 1180880902778204, guid: 37b4d0f08c9f4f642ae9708a310cac0c, type: 3}
+  - {fileID: 1714102379496504, guid: 9555b29e19e27964a906dc49c9318cf8, type: 3}
   foliageDensity: 0.3
-  detailDensity: 100
-  treePrototypeIndices: 05000000
+  detailDensity: 0.2
+  treePrototypeIndices: 0a0000000b0000000c000000

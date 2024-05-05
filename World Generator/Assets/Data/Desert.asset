@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: 1814190282122440, guid: 33247b6aefb946246bc9f0c7346b4364, type: 3}
   - {fileID: 1844642596526496, guid: f597615a8abb43c40be4c01539ceb80b, type: 3}
   - {fileID: 1814772297973644, guid: 7b324b148b509104cb0f42a02b6b4b78, type: 3}
+  detailPrefabs:
+  - {fileID: 1804667845376260, guid: 4005b9a03d8625b4990b7a567bf6faa1, type: 3}
   foliageDensity: 0.15
-  detailDensity: 100
-  treePrototypeIndices: 00000000
+  detailDensity: 0.1
+  treePrototypeIndices: 000000000100000002000000

@@ -61,6 +61,7 @@ public class WorldGenerator : MonoBehaviour
     {
         ApplyBiomes(heightsMap, moistureMap);
         ApplyFoliage();
+        PlaceRocksAndDetails();
     }
     void ClearAllTrees()
     {
@@ -281,9 +282,13 @@ public class WorldGenerator : MonoBehaviour
 
                 if (biome != null)
                 {
+                    /*if (biome.detailPrefabs.Length > 0)
+                    {
+                        ApplyDetailObjects(x, y, biome);
+                    }*/
+
                     if (biome.foliagePrefabs.Length > 0) 
                     { 
-                        //ApplyDetailObjects(x, y, biome);
                         if (Random.value < biome.foliageDensity) // Apply density check here to reduce the number of tree additions
                         {
                             TreeInstance tree = AddTree(biome, new Vector2(x, y));
@@ -299,10 +304,10 @@ public class WorldGenerator : MonoBehaviour
 
     void ApplyDetailObjects(int x, int y, Biome biome)
     {
-        if (biome.detailTypes.Length <= 0) return;
+        if (biome.detailPrefabs.Length <= 0) return;
 
         int[,] detailMap = new int[terrain.terrainData.detailWidth, terrain.terrainData.detailHeight];
-        for (int i = 0; i < biome.detailTypes.Length; i++)
+        for (int i = 0; i < biome.detailPrefabs.Length; i++)
         {
             terrain.terrainData.SetDetailResolution(terrain.terrainData.detailWidth, terrain.terrainData.detailResolutionPerPatch);
             terrain.terrainData.SetDetailLayer(x, y, i, detailMap);
@@ -349,6 +354,39 @@ public class WorldGenerator : MonoBehaviour
         }
 
         terrain.Flush(); // Ensure changes take immediate effect
+    }
+
+    void PlaceRocksAndDetails()
+    {
+        for (int x = 0; x < width; x += 1)  // Loop through the terrain width with a step size
+        {
+            for (int y = 0; y < depth; y += 1)  // Loop through the terrain depth with a step size
+            {
+                // Calculate the normalized terrain coordinates (0.0 to 1.0 range)
+                float normX = (float)y + Random.Range(-1, 1) / width * terrain.terrainData.size.x;
+                float normZ = (float)x + Random.Range(-1, 1) / depth * terrain.terrainData.size.z;
+
+                // Calculate the actual world position based on the terrain size and position
+                Vector3 worldPosition = new Vector3(normX, 0, normZ) + terrain.GetPosition();
+
+                // Sample the height at this world position
+                worldPosition.y = terrain.SampleHeight(worldPosition);
+
+                // Get the biome and check if it meets conditions to place an object
+                float height = heightsMap[x, y];
+                BiomeType biomeType = DetermineBiome(height, moistureMap[x, y]);
+                Biome biome = FindBiomeByType(biomeType);
+
+                if (biome != null && biome.detailPrefabs.Length > 0 && height > 0.2 && Random.value < biome.detailDensity)
+                {
+                    // Choose a random prefab from the biome-specific prefabs
+                    GameObject prefab = biome.detailPrefabs[Random.Range(0, biome.detailPrefabs.Length)];
+                    float yAngle = Random.Range(0f, 360f); // Generate a random angle for rotation around the Z-axis
+                    Quaternion randomRotation = Quaternion.Euler(0, yAngle, 0); // Create rotation quaternion
+                    Instantiate(prefab, worldPosition, randomRotation);
+                }
+            }
+        }
     }
 
     void ModifyEdgesForIsland(float[,] heights, int width, int depth, float edgeHeight)

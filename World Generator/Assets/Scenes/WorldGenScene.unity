@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b70920247282b47935731a39a44751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.2
+  amplitude: 0.05
   frequency: 1
 --- !u!64 &786807383
 MeshCollider:

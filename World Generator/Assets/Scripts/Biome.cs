@@ -7,7 +7,7 @@ public class Biome : ScriptableObject
     public BiomeType biomeType;  // This is the enum
     public TerrainLayer terrainLayer;
     public GameObject[] foliagePrefabs;  // Trees and large bushes
-    [SerializeField] public DetailPrototype[] detailTypes;  // Grass and small plants
+    public GameObject[] detailPrefabs;  // Grass and small objects
     public float foliageDensity;  // General multiplier for density
     public float detailDensity;   // Specific for smaller details like grass
     public List<int> treePrototypeIndices;  // Indices of tree prototypes in the global array
