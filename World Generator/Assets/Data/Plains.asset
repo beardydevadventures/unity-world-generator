@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc1402514f3dd04f8211157e6d9aebb, type: 3}
+  m_Name: Plains
+  m_EditorClassIdentifier: 
+  biomeType: 1
+  terrainLayer: {fileID: 8574412962073106934, guid: 57e28fecc3b364b4689d65f75ae57a94,
+    type: 2}
+  foliagePrefabs:
+  - {fileID: 1041271695553482, guid: 4d88971c9d891dc45a8dbd49a3ba6913, type: 3}
+  - {fileID: 1614002195495084, guid: d9e944108d6a10d4dab3ec7137c8b739, type: 3}
+  foliageDensity: 0.5
+  detailDensity: 100
+  treePrototypeIndices: 03000000

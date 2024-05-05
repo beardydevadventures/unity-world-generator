@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc1402514f3dd04f8211157e6d9aebb, type: 3}
+  m_Name: Forest
+  m_EditorClassIdentifier: 
+  biomeType: 2
+  terrainLayer: {fileID: 8574412962073106934, guid: 16477d648fb6510418c754b2725b8901,
+    type: 2}
+  foliagePrefabs:
+  - {fileID: 1130392368877672, guid: 1ea71f643417d124d91e53eae7c666a6, type: 3}
+  - {fileID: 1756402572416146, guid: 1000cad1907db004b8d52ddf62c1ae94, type: 3}
+  - {fileID: 1777461590549580, guid: 47ac04e5b24338c44ba15b946641236c, type: 3}
+  foliageDensity: 0.8
+  detailDensity: 100
+  treePrototypeIndices: 030000000400000005000000
